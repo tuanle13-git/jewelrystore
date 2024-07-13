@@ -58,16 +58,16 @@ $(document).ready(function () {
   $(".signup").on("click", function () {
     $(".signupform").removeClass("d-none");
     $(".signinform").addClass("d-none");
-    $(".signup").css("border-bottom","2px solid black"); // Corrected class name
-    $(".signin").css("border-bottom","0px"); // Corrected class name
-});
+    $(".signup").css("border-bottom", "2px solid black"); // Corrected class name
+    $(".signin").css("border-bottom", "0px"); // Corrected class name
+  });
 
-$(".signin").on("click", function () {
+  $(".signin").on("click", function () {
     $(".signinform").removeClass("d-none");
     $(".signupform").addClass("d-none");
-    $(".signin").css("border-bottom","2px solid black"); // Corrected class name
-    $(".signup").css("border-bottom","0px"); // Corrected class name
-});
+    $(".signin").css("border-bottom", "2px solid black"); // Corrected class name
+    $(".signup").css("border-bottom", "0px"); // Corrected class name
+  });
   $(".entersearch").on("click", function () {
     var text = $('.searchinput').val();
     window.location.href = '?a=' + text;
@@ -80,18 +80,41 @@ $(".signin").on("click", function () {
   });
   $('.showpw').on("click", function () {
     var value = $(this).html()
-    if (value=="hide") {
-       $(this).html("show");
-       $(this).siblings("input").attr("type","password")
+    if (value == "hide") {
+      $(this).html("show");
+      $(this).siblings("input").attr("type", "password")
     }
     else {
       $(this).html("hide");
-       $(this).siblings("input").attr("type","text")
+      $(this).siblings("input").attr("type", "text")
     }
   });
-$(".relativem").on("mouseenter",function(){
-  let id = "#"+ $(this).data("change");
-  $(".generaldiv").addClass("d-none")
-  $(id).removeClass("d-none");
+  $(".relativem").on("mouseenter", function () {
+    let id = "#" + $(this).data("change");
+    $(".generaldiv").addClass("d-none")
+    console.log(id)
+    $(id).removeClass("d-none");
+  })
+  let topInt = $(".fixedtopint1").innerHeight()
+  console.log(topInt)
+  if (topInt > 0) {
+    $(".fixedtopint2").css("top", topInt + 1 + "px")
+    $(".absolutem").css("padding-left", $("#checkleft").offset().left + "px")
+    console.log($(".needoffset:first").offset().left)
+  }
 })
-})
+$(window).on("resize", function () {
+  let topInt = $(".fixedtopint1").innerHeight()
+  console.log(topInt)
+  if (topInt > 0) {
+    $(".fixedtopint2").css("top", topInt + 1 + "px")
+    $(".absolutem").css("padding-left", $("#checkleft").offset().left + "px")
+    console.log($(".needoffset:first").offset().left)
+  }
+  $(".shopingnav").on("mouseenter", function () {
+    $(this).on("mouseleave", function () {
+      $(this).addClass("d-none");
+    });
+  });
+
+});
