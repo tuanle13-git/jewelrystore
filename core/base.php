@@ -9,7 +9,7 @@ function load_view($view, $datashow = null) {
 };
 
 function load_controller ($controller,$action="construct"){
-    $path = MODULESPATH.DIRECTORY_SEPARATOR."controller".DIRECTORY_SEPARATOR.$controller.".php";
+    $path = MODULESPATH.DIRECTORY_SEPARATOR."controller".DIRECTORY_SEPARATOR.$controller."Controller.php";
    
     if (file_exists($path)) {
         require $path; 
@@ -53,7 +53,7 @@ function get_footer (){
     } 
         else echo "file not exist2";
 };
-$page = isset($_GET['page'])?$_GET['page']:'Home';
+$page = isset($_GET['page'])?$_GET['page']:'home';
 $act = isset($_GET['action'])?$_GET['action']:'construct';
 ?>
 

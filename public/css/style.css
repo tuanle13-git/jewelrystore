@@ -2,10 +2,20 @@
     .imgcon {
     width: 100%; 
     position: relative !important;
-    padding-top: 100%; 
+    padding-top: 125% !important; 
     overflow: hidden;
     }
-    
+    .imgconcircle {
+        width: 100%; 
+        position: relative !important;
+        padding-top: 100% !important; 
+        overflow: hidden;
+        }
+        
+    .productcontent {
+        border: 1px solid black;
+        border-right: 0px;
+     }
     .imgcon img {
     position: absolute;
     top: 0;
@@ -14,6 +24,14 @@
     height: 100%;
     object-fit: cover; /* Ensures the image covers the container while maintaining its aspect ratio */
     }
+    .imgconcircle img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the image covers the container while maintaining its aspect ratio */
+        }
     
     .imgcon:hover .mainimg {
         z-index: 0!important; /* Khi hover, đẩy .mainimg ra sau .sub */
@@ -32,9 +50,11 @@
     right: 0;
     color: black;
     display: flex;
-    justify-content: center;
+    padding: 20px;
+    /* justify-content: center; */
     align-items: center;
     margin: 0 !important;
+    font-size: 14px;
     
     }
     .titlebottom:hover .titleimgbottom{
@@ -153,3 +173,24 @@
     /* body {
         font-family: 'Be Vietnam' !important;
     } */
+
+    .selectcolor {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        display: flex;
+       
+        margin-right: 4px;
+       
+      }
+      .selectcolorsub {
+        height: 15px;
+        width: 15px;
+        margin: auto;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .activecolor {
+        border: 1px solid black;
+      }
