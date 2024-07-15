@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header();
+ $_SESSION['user'] = 1; 
+?>
 
 
 

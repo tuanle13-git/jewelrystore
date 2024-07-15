@@ -1,4 +1,8 @@
 <?php
+session_start();
+// Xử lý URL
+
+  
 $path = dirname(__FILE__);
 define('LAYOUTPATH',$path.DIRECTORY_SEPARATOR."layout");
 define('MODULESPATH',$path.DIRECTORY_SEPARATOR."modules");
@@ -11,4 +15,3 @@ require COREPATH.DIRECTORY_SEPARATOR."appload.php";
 $request_uri = $_SERVER['REQUEST_URI'];
 
 
-// Xử lý URL

@@ -13,9 +13,10 @@ function load_controller ($controller,$action="construct"){
    
     if (file_exists($path)) {
         require $path; 
-        if (function_exists($action."Action")) {
-            call_user_func($action."Action");
-        }
+        if (method_exists($controller."Controller",$action."Action")) {
+            call_user_func([$controller."Controller",$action."Action"]);
+           
+        }else  echo $controller."Controller".$action."Action";
     } 
         else echo "file not exist1";
         

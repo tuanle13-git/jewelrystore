@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header(); 
+
+?>
 
 
 
@@ -16,7 +18,9 @@
                                 <img src=
                                 <?php 
                                     echo "'".$row["imgmain"]."'";
+                                    $_SESSION['user'] = $row['id_product'];
                                 ?>
+                                
                                     alt="">
                             </div>
         
@@ -472,3 +476,8 @@
 
         </div>
     </div>
+
+    <?php 
+                                    echo "'". $_SESSION['user']."'";
+                                   
+                                ?>
