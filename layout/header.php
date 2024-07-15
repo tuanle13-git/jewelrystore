@@ -12,6 +12,7 @@
         crossorigin="anonymous"></script>
     <script src="/public/js/jquery-3.7.1.min.js"></script>
     <script src="/public/js/event.js"></script>
+    <script src="/public/js/ajax.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
