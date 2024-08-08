@@ -1,73 +1,71 @@
 <?php get_header();
- $_SESSION['user'] = 1; 
 ?>
-
-
-
-
-<body> 
 <?php get_nav(); ?>
-<div class="container position-relative ">
-        <div ><h1 >Earrings</h1>
-            <p>Elevate your jewelry ensemble with silver and gold earrings.</p>
-        </div>
-        <div style="z-index: 1;" class="d-flex justify-content-between pb-3 pt-3 bg-white sticky-top fixedtopint2">
-            <p class="text-decoration-underline">BỘ LỌC</p>
-            <div>
-                <div class="d-inline-block">SẮP XẾP THEO: </div>
-                <div class="d-inline-block">
-                    <select class="form-select " aria-label="Default select example">
-                        <option selected value="1">Mới nhất</option>
-                        <option value="2">Cũ nhất</option>
-                        <option value="3">Giá cao đến thấp</option>
-                        <option value="4">Giá thấp đến cao</option>
-                    </select>
-                </div>
-    
-            </div>
-        </div>
-        <div class="row ">
-         
-           
-            <div class="col-sm-3 product">
 
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">  
-                        <img class="mainimg"
-                      src="https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_3840,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060" decoding="async" data-nimg="fill" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;" sizes="(min-width: 768px) 24vw, 40vw" srcset="https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_256,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 256w, https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_384,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 384w, https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_640,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 640w, https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_750,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 750w, https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_828,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 828w, https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_1080,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 1080w, https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_1200,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 1200w, https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_1920,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 1920w, https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_2048,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 2048w, https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_3840,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/16841/original/DiamondsTeam_ring_wg_hero_0360.jpg?1605794060 3840w">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
+<main class="container-fluid  m-0 p-0">
+            <div class="m-0 py-md-3 py-sm-1 container-fluid bg-white d-flex justify-content-between shadow  top-sticky-2 sticky-top" style="z-index: 10!important;">
+                <div class="roboto-regular px-lg-5 sort-area bg-white ">
+                    <p class="m-0 text-decoration-underline">BỘ LỌC</Canvas></p></div>
+                <div class="roboto-regular sort-area bg-white ">
+                    <div class=" d-flex flex-row pe-md-3 pe-sm-1">
+                        <p class=" m-0">XẮP XẾP: </p>
+                        <p class="m-0 sort-value">MỚI NHẤT</p>
+                        <i class="bi bi-chevron-compact-down genaral-sort-list" data-show="true"></i>
+                        <i class="bi bi-chevron-compact-up genaral-sort-list d-none show-sort-list"></i>
                     </div>
-                    <div class="" style="margin-top: 2px;">
-                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 5px;">Boyfriend Bold Bracelet</p>
-                        <div class="d-flex">  <span class="selectcolor">  <span class="selectcolorsub"></span></span>   <span class="selectcolor">  <span class="selectcolorsub"></span></span></div>
-                        <p class="m-0 metal_stone_name" style="font-size: 12px!important; font-weight: 300;"></p>
-                        <p style="margin: 0 !important; font-size: 12px!important; font-weight: 200;" >1000000 VNĐ</p>
-                        <p style="margin: 0 !important; font-size: 12px!important; font-weight: 200;" >Vàng 14K</p>
+                    <div class="position-relative show-sort-list sort-area-value d-none">
+                        <div class="position-absolute p-1 top-100 start-0 end-0 bg-white shadow-lg">
+                            <li class="list-unstyled active" data-value="MỚI NHẤT">MỚI NHẤT</p>
+                            <li class="list-unstyled" data-value="CŨ NHẤT">CŨ NHẤT</p>
+                            <li class="list-unstyled" data-value="CAO ĐẾN THẤP">GIÁ: CAO ĐẾN THẤP</p>
+                            <li class="list-unstyled" data-value="THẤP ĐẾN CAO">GIÁ: THẤP ĐẾN CAO</p>
+
+                                
+                               
+                        </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <?php 
-        while($row=$datashow->fetch_assoc()){
-            echo '<div class="col-sm-3 product" >
+           <div class="container-sm border-start border-end border-dark">
+            <div class="row "  style="align-items: stretch;">
+                <!-- card -->
+                <div class="col-6 col-sm-3 h-100  p-sm-3 p-1">
+                    <div class="border border-dark">
+                        <a class="text-dark text-decoration-none" href="">
+                            <img class="w-100 ratio ratio-1x1" style="background-color: rgb(250,247,240);"
+                                src="https://cdn.pnj.io/images/thumbnails/300/300/detailed/217/sp-glddddw000886-lac-tay-kim-cuong-vang-trang-14k-pnj-01.png"
+                                alt="">
+                            <div class="">
+                                <p class="text-center">Dây cổ Vàng trắng 14K đính ngọc trai Akoya PNJ PAMXW000021</p>
+                                <p class="text-center roboto-light">100000 VNĐ</p>
+                            </div>
+                        </a>
+                    </div>
 
-            <a href="?page=detail&idproduct='.$row["id_product"]. '" class="text-decoration-none text-dark">
-                <div class="imgcon position-relative">
-                    <img class="mainimg"
-                        src="'.$row["imgmain"].'"
-                        data-imgsub = "'.$row["imgsub"]. '
-                        alt="" style="z-index: 2; ">
+                </div>
+                <?php 
+                while($row=$datashow->fetch_assoc()){?>
+                <div class="col-6 col-sm-3 h-auto  p-sm-3 p-1 d-flex flex-column">
+                    <div class="border border-dark h-100 d-flex">
+                        <a class="text-dark text-decoration-none h-auto d-flex flex-column" href="">
+                            <img class="w-100 ratio ratio-1x1" style="background-color: rgb(250,247,240);"
+                                src="<?php echo $row['main_img']; ?>"
+                                alt="">
+                            <div class="d-flex flex-column h-100 ">
+                                <p class="text-center"><?php echo $row['name_product']; ?></p>
+                                <p class="text-center roboto-light mt-auto"><?php echo $row['price']; ?> VNĐ</p>
+                            </div>
+                        </a>
+                    </div>
 
-                    <div class="addicon  rounded-pill">Thêm vào giỏ</div>
                 </div>
-                <div class="" style="margin-top: 2px;">
-                    <h6>'.$row["name"]. '</h6>
-                    <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                    <p style="margin: 0 !important;" style="font-size: 14px;">'.$row["price"]. '</p>
-                </div>
-            </a>
-        </div>';
-        }
-        ?>
-        </div>
-    </div>
+                <?php } ?>
+
+            </div>
+
+           </div>
+        </main>
+        <main style="height: 10000px;">
+            <div class="sticky-top " style="top: 100px;height: 100px; width: 100%; background-color: black;"></div>
+        </main>
+        <?php get_footer(); ?>

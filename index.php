@@ -1,6 +1,8 @@
 <?php
 session_start();
 // Xử lý URL
+// Phân tích URL để lấy phần path sau domain
+$request_uri = $_SERVER['REQUEST_URI'];
 
   
 $path = dirname(__FILE__);
@@ -11,7 +13,5 @@ define('COREPATH',$path.DIRECTORY_SEPARATOR."core");
 define('LIBPATH',$path.DIRECTORY_SEPARATOR."lib");
 require COREPATH.DIRECTORY_SEPARATOR."appload.php";
 
-// Phân tích URL để lấy phần path sau domain
-$request_uri = $_SERVER['REQUEST_URI'];
 
 

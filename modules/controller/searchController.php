@@ -5,7 +5,7 @@ class searchController {
       
             load_model("product");
             $p = new product();
-            $datashow = $p->result;
+            $datashow = $p->searchProduct();
             
             load_view('search',$datashow);
            

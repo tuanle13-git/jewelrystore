@@ -1,483 +1,221 @@
-<?php get_header(); 
+<!DOCTYPE html>
+<html lang="vi">
 
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../public/css/style1.css">
+    <link rel="stylesheet" href="../../public/css/roboto_font.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="../../public/js/event1.js"></script>
+</head>
 
+<body>
+    <!-- detail -->
+    <main class="container-fluid">
+        <div class="row p-md-5 p-sm-1">
+            <div class="col-md-8 col-sm-12 ">
+                <div class="row sticky-top top-sticky-2 ">
+                   <?php  foreach ($datashow['img'] as $row) { ?>
+                    <div class="col-md-6 col-sm-12 p-1 ">
+                        <div class="ratio ratio-1x1  ">
+                            <img class=" p-md-1 p-sm-1 border border-dark" src="<?php echo $row['link']; ?>" alt="">
 
-
-<body> 
-<?php get_nav(); ?>
-<main>
-    <?php $row=$datashow->fetch_assoc(); ?>
-        <div class="container-sm">
-            <div class="row">
-                <div class="col-8 ">
-                    <div class="d-grid" style="grid-template-columns: repeat(2,1fr)">
-                        <div class="h-100 w-100">
-                            <div class="imgconcircle">
-                                <img src=
-                                <?php 
-                                    echo "'".$row["imgmain"]."'";
-                                    $_SESSION['user'] = $row['id_product'];
-                                ?>
-                                
-                                    alt="">
-                            </div>
-        
                         </div>
-                        <div class="h-100 w-100">
-                            <div class="imgconcircle">
-                                <img src= <?php 
-                                    echo "'".$row["imgmain"]."'";
-                                ?>
-                                    alt="">
+                    </div>
+                   <?php } ?>
+
+                </div>
+
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 p-md-5 d-flex flex-column">
+                <p class="roboto-medium-24">
+                    <?php echo  $datashow['name_product'];
+                    $firtsize = current($datashow['size']);
+                    ?>
+                </p>
+                <p>
+                    <span id="price"><?php echo $firtsize['price'];  ?></span> VNĐ
+                </p>
+                <hr>
+                <p class="bgbuild-bold roboto-light-12 me-auto p-md-1">
+                    Best Seller
+                </p>
+
+                <p class="roboto-light-12 text-decoration-underline ">
+                    Size Guide
+                </p>
+
+                <div class="d-flex gap-2 pb-3">
+                    <?php
+                    foreach ($datashow['size'] as $row) { ?>
+                        <div class="position-relative ">
+                            <input class="position-absolute top-0 bottom-0 end-0 start-0 opacity-0" type="radio" name="size_select" checked value="<?php echo $row['id_size']; ?>" data-price="<?php echo $row['price']; ?>">
+                            <div class="labelsize border border-dark py-1 text-center d-flex <?php
+                                                                                                if ($row == $firtsize) {
+                                                                                                    echo 'active-checkbox';
+                                                                                                } ?> " style="min-width: 43px!important; min-height: 43px; ">
+                                <p class="p-0 px-1 m-auto"><?php echo $row['name_size'];
+                                                         ?>
+                                </p>
                             </div>
-        
-        
+
                         </div>
+                        <?php } ?>
+                </div>
+
+                <div class="d-flex flex-nowrap">
+                    <a href="" class="bg-dark text-white w-100 me-1 text-center text-decoration-none d-flex">
+                        <p class="p-0 m-auto">Mua ngay</p>
+                    </a>
+                    <button class="nav-link border-0 text-white ms-auto bg-dark px-3 py-2" rel="nofollow" target="_blank">
+                        <i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.8941 9.31648C18.8549 9.26435 18.804 9.2225 18.7457 9.19438C18.6874 9.16627 18.6233 9.15271 18.5588 9.15483H14.8882C14.5372 8.13212 14.1094 7.13836 13.6088 6.18232C13.2992 5.58004 12.9136 5.02153 12.4618 4.52094C12.2907 4.34155 12.0829 4.20262 11.8532 4.11399C11.6235 4.02535 11.3775 3.98918 11.1325 4.00803C10.8875 4.02688 10.6497 4.10029 10.4357 4.22306C10.2217 4.34583 10.0368 4.51497 9.89411 4.71851C9.56882 5.19676 9.29378 5.70845 9.07352 6.24518C8.66862 7.19362 8.31803 8.16513 8.02352 9.15483H4.44116C4.37667 9.15271 4.31261 9.16627 4.2543 9.19438C4.19599 9.2225 4.1451 9.26435 4.10586 9.31648C4.06244 9.3658 4.03103 9.42483 4.01417 9.48879C3.9973 9.55276 3.99547 9.61986 4.0088 9.68468L5.77352 19.626C5.79019 19.7307 5.84276 19.826 5.9219 19.8951C6.00104 19.9641 6.10164 20.0024 6.20587 20.0032H16.7941C16.8971 20.0028 16.9967 19.9658 17.0756 19.8985C17.1546 19.8313 17.208 19.7381 17.2265 19.635L18.9912 9.68468C19.0045 9.61986 19.0027 9.55276 18.9858 9.48879C18.969 9.42483 18.9376 9.3658 18.8941 9.31648ZM9.87647 6.62236C10.0732 6.14085 10.3217 5.68304 10.6176 5.25733C10.6824 5.15774 10.7682 5.07417 10.8688 5.01275C10.9694 4.95134 11.0822 4.91365 11.199 4.90246C11.3158 4.89126 11.4336 4.90683 11.5437 4.94804C11.6538 4.98925 11.7535 5.05505 11.8353 5.14059C12.232 5.58696 12.5729 6.08166 12.85 6.61338C13.2751 7.43346 13.6437 8.28266 13.9529 9.15483H8.94999C9.2156 8.28025 9.52482 7.42 9.87647 6.57746V6.62236ZM16.4059 19.1949H6.54999L4.97057 10.0529H7.74999C7.59117 10.5648 7.44117 11.1036 7.27352 11.6873C7.25746 11.7445 7.25272 11.8044 7.25959 11.8635C7.26646 11.9225 7.28479 11.9796 7.31352 12.0314C7.34226 12.0832 7.38082 12.1287 7.42697 12.1652C7.47311 12.2017 7.52593 12.2285 7.58234 12.2441C7.63738 12.2605 7.69507 12.2656 7.75206 12.2591C7.80905 12.2525 7.86419 12.2346 7.91428 12.2061C7.96437 12.1777 8.00841 12.1394 8.04382 12.0935C8.07924 12.0476 8.10533 11.995 8.12058 11.9388C8.3147 11.2473 8.49999 10.6276 8.66764 10.0529H14.2706C14.4647 10.6366 14.6677 11.2652 14.8794 11.9477C14.9145 12.0668 14.9947 12.1668 15.1022 12.2258C15.2098 12.2847 15.3359 12.2978 15.453 12.2621C15.57 12.2263 15.6682 12.1448 15.7261 12.0353C15.7841 11.9258 15.7969 11.7974 15.7618 11.6783C15.5853 11.1036 15.4088 10.5648 15.2412 10.0529H18.0647L16.4059 19.1949Z" fill="currentColor"></path>
+                            </svg></i>
+
+                    </button>
+                </div>
+
+                <hr>
+                <div>
+                    <div class="d-flex showcontent" data-active="hide">
+                        <p class="m-0">Mô tả sản phẩm</p>
+                        <div class="ms-auto ">
+                            <h2 class="m-0">
+                                <i class="bi bi-dash content"></i>
+                                <i class="bi bi-plus d-none"></i>
+                            </h2>
+                        </div>
+
+                    </div>
+                    <div class="roboto-light content d-none">
+                        <div class="mb-2">
+                            <ul>
+                                <li>
+                                    Thương hiệu: <?php echo  $datashow['name_trademark'];  ?>
+                                </li>
+                                <li>
+                                    Giới tính: <?php echo  $datashow['name_sex'];  ?>
+                                </li>
+                                <li>
+                                    Loại đá chính: <?php echo  $datashow['name_mainstone'];  ?>
+                                </li>
+                                <li>
+                                    Loại đá phụ: <?php echo  $datashow['name_substone'];  ?>
+                                </li>
+                                <li>
+                                    Trọng lượng tham khảo: 11111
+                                </li>
+                            </ul>
+                        </div>
+
+                        <p class="italic">Lưu ý:</p>
+                        <ul class="italic list-disc list-inside  ">
+                            <li>PNJ bảo hành các sản phẩm thuộc hệ thống cửa hàng kênh lẻ và online của PNJ. ​​​</li>
+                            <li>Chế độ bảo hành sản phẩm có thể thay đổi theo chính sách của PNJ đối với các dòng hàng và chương trình
+                                khuyến mãi vào từng thời điểm.​</li>
+                        </ul>
+
+
                     </div>
                 </div>
-                
-                <div class="col-sm-4 ">
-                    <p class="fw-bold">
-                    <?php 
-                                    echo $row["name"];
-                                ?>
-                    </p>
-                    <p class="">
-                    <?php 
-                                    echo $row["price"];
-                                ?>
-                    </p>
-                    <hr>
-                    <div class="p-3 bg-danger">
-                
-                    </div>
-                    <hr>
-                    <div class="d-flex bg-dark text-white p-3">
-                        <p class="m-auto">THÊM VÀO GIỎ</p>
-                    </div>
-                    <div class="p-5 text-decoration-underline">
-                        <p>+ Miễn phí vận chuyển</p>
-                        <p>+ Hoản trả 30 ngày</p>
-                        <p>+ Bào hành 2 năm</p>
-                    </div>
-                    <hr>
-                    <div>
-                        <div class="d-flex justify-content-between align-content-center">
-                            <p class="mt-auto mb-auto">Thông số sản phẩm</p>
-                            <h3 class="hideplus">+</h3 >
-                            
+                <hr>
+                <div>
+                    <div class="d-flex showcontent" data-active="hide">
+                        <p class="m-0">Chính sách bảo hành</p>
+                        <div class="ms-auto ">
+                            <h2 class="m-0">
+                                <i class="bi bi-dash content"></i>
+                                <i class="bi bi-plus d-none"></i>
+                            </h2>
                         </div>
-                        <div class="ps-5 pt-2 d-none ">
-                            chán quá mấy đứa bây
-                            <br>
-                            hãy nói
-                            <br>
-                            new
-                            <br>
-                            abc
-                            <br>
-                            <b> </b>
-                        </div>
+
                     </div>
-                    <hr>
-                    <div>
-                        <div class="d-flex justify-content-between align-content-center">
-                            <p class="mt-auto mb-auto">Thông số sản phẩm</p>
-                            <h3 class="hideplus">+</h3 >
-                            
+                    <div class="roboto-light content d-none">
+                        <div class="mb-2">
+                            <p class="text-[#003468]">Bảo hành miễn phí 6 tháng</p>
+                            <p>Bảo hành 6 tháng lỗi kỹ thuật, nước xi.</p>
                         </div>
-                        <div class="ps-5 pt-2 d-none ">
-                            chán quá mấy đứa bây
-                            <br>
-                            hãy nói
-                            <br>
-                            new
-                            <br>
-                            abc
-                            <br>
-                            <b> </b>
+                        <div class="mb-2">
+                            <p class="text-[#003468]">Miễn phí siêu âm và đánh bóng bằng máy chuyên dụng trọn đời</p>
+                            <ul class="list-disc list-inside">
+                                <li>Đối với sản phẩm bị oxy hóa, xuống màu, sẽ được siêu âm làm sạch bằng máy chuyên dụng (siêu âm, không
+                                    xi) miễn phí trọn đời tại cửa hàng.​</li>
+                                <li>Miễn phí đánh bóng trọn đời . Nhẫn cưới sẽ được bảo hành, làm mới, đánh bóng, xi miễn phí trọn đời.</li>
+                            </ul>
                         </div>
+                        <div class="mb-2">
+                            <p class="text-[#003468]">Miễn phí thay đá CZ và đá tổng hợp</p>
+                            <p>Miễn phí thay đá CZ và đá tổng hợp trong suốt thời gian bảo hành.​​</p>
+                            <p>* Không áp dụng bảo hành cho các trường hợp sau:​</p>
+                            <ul class="ml-4">
+                                <li>- Đối với sản phẩm bị oxy hóa, xuống màu, sẽ được siêu âm làm sạch bằng máy chuyên dụng (siêu âm, không
+                                    xi) miễn phí trọn đời tại cửa hàng.​</li>
+                                <li>- Miễn phí đánh bóng trọn đời . Nhẫn cưới sẽ được bảo hành, làm mới, đánh bóng, xi miễn phí trọn đời.
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="italic">Lưu ý:</p>
+                            <ul class="italic list-disc list-inside  ">
+                                <li>PNJ bảo hành các sản phẩm thuộc hệ thống cửa hàng kênh lẻ và online của PNJ. ​​​</li>
+                                <li>Chế độ bảo hành sản phẩm có thể thay đổi theo chính sách của PNJ đối với các dòng hàng và chương trình
+                                    khuyến mãi vào từng thời điểm.​</li>
+                            </ul>
+                        </div>
+
                     </div>
-                    <hr>
                 </div>
+                <hr>
+
+
             </div>
         </div>
     </main>
+</body>
 
-    <div class="container position-relative">
-        <p class="pt-3 d-flex justify-content-center"><b>BÁN CHẠY NHẤT</b></p>
-        <div class="row slidecontainer">
-            <div class="col-4 col-sm-2 product" >
+</html>
 
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product " >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 2; ">
-                        <img class="sub"
-                            src="https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_384,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/30601/original/1-BeadedHuggieHoops-14k-Stack1_027.jpg?1697734365"
-                            alt="" style="z-index: 1;">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4 col-sm-2 product" >
-
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="imgcon position-relative">
-                        <img class="mainimg"
-                            src="https://product.hstatic.net/200000689681/product/2_774e332371d644559837e22b76a90332_large.png"
-                            alt="" style="z-index: 1; ">
-                        <img class="sub"
-                            src="https://static.mejuri.com/mejuri-com/image/fetch/c_scale,f_auto,q_60,c_limit,w_384,q_auto/https://static.mejuri.com/legacy-front/production/system/spree/products/30601/original/1-BeadedHuggieHoops-14k-Stack1_027.jpg?1697734365"
-                            alt="" style="z-index: 0;">
-
-                        <div class="addicon  rounded-pill">Thêm vào giỏ</div>
-                    </div>
-                    <div class="" style="margin-top: 2px;">
-                        <h6>Boyfriend Bold Bracelet</h6>
-                        <p class="m-0 metal_stone_name" style="font-size: 14px;"></p>
-                        <p style="margin: 0 !important;" style="font-size: 14px;">1000000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-
-
+<!-- bảo hành  <div style="height: 1000px;">
+    <div class="">
+        <div class="mb-2">
+            <p class="text-[#003468]">Bảo hành miễn phí 6 tháng</p>
+            <p>Bảo hành 6 tháng lỗi kỹ thuật, nước xi.</p>
+        </div>
+        <div class="mb-2">
+            <p class="text-[#003468]">Miễn phí siêu âm và đánh bóng bằng máy chuyên dụng trọn đời</p>
+            <ul class="list-disc list-inside">
+                <li>Đối với sản phẩm bị oxy hóa, xuống màu, sẽ được siêu âm làm sạch bằng máy chuyên dụng (siêu âm, không
+                    xi) miễn phí trọn đời tại cửa hàng.​</li>
+                <li>Miễn phí đánh bóng trọn đời . Nhẫn cưới sẽ được bảo hành, làm mới, đánh bóng, xi miễn phí trọn đời.</li>
+            </ul>
+        </div>
+        <div class="mb-2">
+            <p class="text-[#003468]">Miễn phí thay đá CZ và đá tổng hợp</p>
+            <p>Miễn phí thay đá CZ và đá tổng hợp trong suốt thời gian bảo hành.​​</p>
+            <p>* Không áp dụng bảo hành cho các trường hợp sau:​</p>
+            <ul class="ml-4">
+                <li>- Đối với sản phẩm bị oxy hóa, xuống màu, sẽ được siêu âm làm sạch bằng máy chuyên dụng (siêu âm, không
+                    xi) miễn phí trọn đời tại cửa hàng.​</li>
+                <li>- Miễn phí đánh bóng trọn đời . Nhẫn cưới sẽ được bảo hành, làm mới, đánh bóng, xi miễn phí trọn đời.
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p class="italic">Lưu ý:</p>
+            <ul class="italic list-disc list-inside  ">
+                <li>PNJ bảo hành các sản phẩm thuộc hệ thống cửa hàng kênh lẻ và online của PNJ. ​​​</li>
+                <li>Chế độ bảo hành sản phẩm có thể thay đổi theo chính sách của PNJ đối với các dòng hàng và chương trình
+                    khuyến mãi vào từng thời điểm.​</li>
+            </ul>
         </div>
     </div>
-
-    <?php 
-                                    echo "'". $_SESSION['user']."'";
-                                   
-                                ?>
+</div> -->

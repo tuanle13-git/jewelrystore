@@ -2,6 +2,7 @@
 <?php 
 function load_view($view, $datashow = null) {
     //extract($data);
+   
     $path = MODULESPATH.DIRECTORY_SEPARATOR."view".DIRECTORY_SEPARATOR.$view."View.php";
     if (file_exists($path)) require $path; 
         else echo "file not exist3";
@@ -56,5 +57,6 @@ function get_footer (){
 };
 $page = isset($_GET['page'])?$_GET['page']:'home';
 $act = isset($_GET['action'])?$_GET['action']:'construct';
+
 ?>
 
